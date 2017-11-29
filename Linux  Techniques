@@ -1,0 +1,22 @@
+1) Know thread names of a process:
+  a) ps -T -p `pidof <process name>`
+  b) cat /proc/`pidof <process name>`/task/*/comm
+  c) ps -ALf
+
+
+2) Know largest object in source code:
+  nm --print-size --size-sort --radix=d <elf name>
+  
+3) Run program in background (EVEN IF YOU CLOSE THE TERMINAL!!!)
+  Use no hangup to run a program in background even if you close your terminal.
+
+  nohup /path/to/test.py &
+  
+  Do not forget to use & to put it in background.
+  
+ 4) Generate Map file.
+  At the head of makefile without any tab., add below line
+  LDFLAGS=-Wl,-Map=$@.map
+  
+  5) Check thread state.
+    ps -Leo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm  | grep `pidof a.out`
