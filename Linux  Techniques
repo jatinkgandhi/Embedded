@@ -60,3 +60,5 @@ a) ldd  <elf>
 b) readelf -d <elf>
 
 
+10) checkout memeory growth of a process.
+watch "cat /proc/`pidof per`/status | grep VmRSS"
