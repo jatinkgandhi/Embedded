@@ -14,9 +14,49 @@
   
   Do not forget to use & to put it in background.
   
- 4) Generate Map file.
+4) Generate Map file.
   At the head of makefile without any tab., add below line
   LDFLAGS=-Wl,-Map=$@.map
   
-  5) Check thread state.
+5) Check thread state.
     ps -Leo pid,tid,class,rtprio,ni,pri,psr,pcpu,stat,wchan:14,comm  | grep `pidof a.out`
+
+6) Merge files in windows:
+
+@echo "Merging files..."
+
+for %%f in (*.txt) do (
+@echo "Merging %%f"
+type "%%f" >> merged.txt
+)
+@echo "Merging files...DONE"
+
+
+7) Concatenate all files:
+#!/bin/bash
+
+filename='list.txt'
+resultfile='combined.c'
+
+rm -rf $resultfile
+rm -rf $filename
+
+ls -l | awk -F' ' '{print $9}'  > $filename
+
+while read p; do
+echo $p >> $resultfile
+echo "-----------------------------------------"  >> $resultfile
+cat "$p" >> $resultfile
+done < $filename
+
+rm -rf $filename
+
+
+8) Get undefined  symbols of an object file:
+find -iname "*.o" -exec nm \{\} \; | grep " T " | awk  -F' ' '{print $2}' | sort | uniq
+
+9) Libraries used by ELF.
+a) ldd  <elf>
+b) readelf -d <elf>
+
+
