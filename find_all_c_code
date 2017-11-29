@@ -1,0 +1,5 @@
+Shell script to find recursively all "*.c" files.
+find -type f -iname "*.c"
+Shell script to find recursively all "*.h" files.
+
+find -type f -iname "*.h"
