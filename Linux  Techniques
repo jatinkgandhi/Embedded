@@ -66,3 +66,20 @@ watch "cat /proc/`pidof per`/status | grep VmRSS"
 
 11) Windows command line to Raspberry Pi Copy Operation.
 pscp <file to be sent> <userid>@<IP Address of Raspberry Pi (on same network/NDIS)>:<Directory of user <userid>>/
+
+12) Useful commands from by ~/.bashrc
+alias bye="sudo shutdown -h now"
+alias reboot="sudo reboot"
+alias enhat="sudo chmod +x /usr/local/bin/fbcp"
+alias dishat="sudo chmod -x /usr/local/bin/fbcp"
+alias freecache="sudo sh -c \"echo 1 > /proc/sys/vm/drop_caches\""
+alias killremdesk="sudo killall -9 xrdp-chansrv /usr/lib/xorg/Xorg xrdp-sesman xrdp-sessvc xrdp; ps afx | grep xrdp"
+alias startremdesk="sudo service xrdp restart;ps afx | grep xrdp"
+# Useful command which can't be aliased...,
+#0)  Find and move files: # find -type f | xargs -I'{}' mv '{}' allfiles/
+#1)  Find and move files baed on extention: # find -type f \( -iname \*.c -o -iname \*.cpp -o -iname \*.h \) | xargs -I'{}' mv '{}' allfiles/
+#2)  Find all .c and .h files: # find . -type f \( -iname "*.c" -or -iname "*.h" \)
+#3)  Clfow tree view: # cflow -Tl -m main --omit-arguments * | awk -F "<" '{print $1}'
+#    Remove l from -Tl if you don't want call stack depth.
+#4)  Raspberry pi free cache: # sudo sh -c "echo 1 > /proc/sys/vm/drop_caches"
+
