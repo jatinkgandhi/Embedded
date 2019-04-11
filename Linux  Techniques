@@ -62,3 +62,7 @@ b) readelf -d <elf>
 
 10) checkout memeory growth of a process.
 watch "cat /proc/`pidof per`/status | grep VmRSS"
+
+
+11) Windows command line to Raspberry Pi Copy Operation.
+pscp <file to be sent> <userid>@<IP Address of Raspberry Pi (on same network/NDIS)>:<Directory of user <userid>>/
